@@ -1,11 +1,16 @@
+files = {
+ "load_turtle_line",
+ "load_turtle_square
+}
+
 print("Loading turtle with startup program...")
 shell.run("label", "set", '"Fuel Loader"')
 
-fs.delete("load_turtle_line")
-fs.delete("load_turtle_square")
-fs.copy("disk/load_turtle_line", "load_turtle_line")
-fs.copy("disk/load_turtle_square", "load_turtle_square")
-
+for fileIndex = 1, #files, 1 do
+    fileName = files[fileIndex]
+    fs.delete(fileName)
+    fs.copy("disk/" .. fileName, fileName) 
+end
  
 turtle.select(1)
 turtle.refuel(1)
