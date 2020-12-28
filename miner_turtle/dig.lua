@@ -1,3 +1,5 @@
+-- Adapted from Michael Reeves's (Twitter: @michaelreeves) dig program
+
 local SLOT_COUNT = 16
 local EMPTY_INV_COUNT = 16
 local d = "north"
