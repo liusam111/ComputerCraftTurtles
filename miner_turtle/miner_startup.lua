@@ -1,12 +1,18 @@
+files = {
+    "wireless",
+    "startup",
+    "dig"
+}
+
 print("Loading turtle with startup program...")
 shell.run("label", "set", "Slave")
 
-fs.delete("wireless")
-fs.delete("startup")
-fs.delete("dig")
-fs.copy("disk/wireless", "wireless")
-fs.copy("disk/wireless_startup", "startup")
-fs.copy("disk/dig", "dig")
+for fileIndex = 1, #files, 1 do
+    fileName = files[fileIndex]
+    fs.delete(fileName)
+    fs.copy("disk/" .. fileName, fileName) 
+end
+
 
 turtle.select(1)
 turtle.refuel(1)
